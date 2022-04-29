@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Memespot</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <link th:href="@{/gallery.css}" rel="stylesheet" />
+    <link th:href="@{/details.css}" rel="stylesheet" />
+    <link th:href="@{/forms.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div th:fragment="header" >
+        <header class="header">
+            <nav>
+                <ul class="nav">
+                    <li sec:authorize="!isAuthenticated()">
+                        <a th:href="@{/signup}">Sign Up</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/profile}">Profile</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/home}">Home</a></li>
+                    <li sec:authorize="!isAuthenticated()">
+                        <a th:href="@{/login}">Login</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/newpost}">New Post</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/settings}">Settings</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/logout}">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div th:fragment="footer">
+        <footer class="footer">
+                <p>&copy; Bohdan Hrybinchyk 2022</p>
+        </footer>
+    </div>
+</body>
+
+</html>

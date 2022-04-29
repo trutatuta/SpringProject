@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="base :: head">
+</head>
+<body>
+<div th:include="base :: header"></div>
+
+
+<form th:class="box" th:action="@{/edit}" method="POST" th:object="${user}">
+    <h1>Edit your account:</h1>
+    <div th:if="${#fields.hasErrors('*')}">
+        <p th:each="err:${#fields.errors('*')}"th:text="${err}"></p>
+    </div><br>
+    <input type="text" th:field="*{name}" placeholder="Imię"/>
+    <input type="text" th:field="*{surname}" placeholder="Nazwisko"/>
+    <input type="text" th:field="*{username}" placeholder="Login"/>
+    <input type="password" th:field="*{password}" placeholder="Hasło"/>
+    <br>
+    <input type="submit" value="Edit">
+</form>
+<div th:include="base :: footer"></div>
+</body>
+</html>

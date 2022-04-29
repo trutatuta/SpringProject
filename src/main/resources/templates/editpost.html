@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang= "en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="base :: head">
+</head>
+<body>
+<div th:include="base :: header"></div>
+
+<form th:class="box" th:action="@{'/editpost/' + ${post.id}}" method="POST" th:object="${post}">
+    <h1>Edit post</h1>
+    <div th:if="${#fields.hasErrors('*')}">
+        <p th:each="err:${#fields.errors('*')}"th:text="${err}"></p>
+    </div><br>
+    <input type="text" th:field="*{caption}" placeholder="Caption"/>
+    <span class="error" th:if="${#fields.hasErrors('caption')}" th:errors="*{caption}"></span><br>
+    <input type="submit" value="Edit">
+</form>
+<div th:include="base :: footer"></div>
+</body>
+</html>

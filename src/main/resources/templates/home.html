@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="base :: head">
+</head>
+<body>
+<div th:include="base :: header"></div>
+<div th:include="base :: footer"></div>
+<div th:class="container">
+<div th:class="gallery">
+<tr
+        th:each="post: ${posts}">
+    <td><a th:href="@{'details/' + ${post.id}}"><img th:src="@{'/images/' + ${post.imagePath}}"></a></td>
+
+</tr>
+</div>
+</div>
+</body>
+</html>

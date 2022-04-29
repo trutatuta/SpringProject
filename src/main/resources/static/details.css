@@ -1,0 +1,17 @@
+h1, h2, h3, h4, h5, h6, p {
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+
+}
+
+.detail .det{
+    text-align: left;
+}
+
+main .detail{
+    margin: 100px;
+}
+
+.detail .img-fluid{
+    width: max-content;
+}

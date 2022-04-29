@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="base :: head">
+</head>
+<body>
+<div th:include="base :: header"></div>
+<div th:include="base :: footer"></div>
+<div th:class="container">
+    <div>
+        <img th:src="@{'/images/' + ${post.imagePath}}" th:class="img-fluid">
+    </div>
+    <div th:class="det">
+        <p th:text="${post.caption}"></p>
+    </div>
+    <div th:class="det">
+        <p th:text="'Post by ' + ${user.username} + ' | ' + ${post.pub_date}"></p>
+    </div>
+</div>
+</body>
+</html>

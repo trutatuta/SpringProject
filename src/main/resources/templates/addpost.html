@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang= "pl" xmlns:th="http://www.thymeleaf.org">
+<head th:include="base :: head">
+</head>
+<body>
+<div th:include="base :: header"></div>
+<form th:class="box" th:action="@{/newpost}" method="POST" th:object="${post}" enctype="multipart/form-data">
+    <h1>New post</h1>
+    <div th:if="${#fields.hasErrors('*')}">
+        <p th:each="err:${#fields.errors('*')}"th:text="${err}"></p>
+    </div><br>
+    <input type="text" th:field="*{caption}" placeholder="Caption"/>
+    <span class="error" th:if="${#fields.hasErrors('caption')}" th:errors="*{caption}"></span><br>
+    <input type="file" name="image" accept="image/png, image/jpeg"/>
+    <input type="submit" value="Add new post">
+</form>
+<div th:include="base :: footer"></div>
+</body>
+</html>
